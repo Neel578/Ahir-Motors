@@ -1,350 +1,150 @@
-/* --- 1. Variables & Reset --- */
-:root {
-    /* Premium Color Palette */
-    --color-bg-main: #0a0a0a;      /* Deepest Black */
-    --color-bg-secondary: #141414; /* Slightly lighter black for cards */
-    --color-accent: #d4af37;       /* Gold/Bronze */
-    --color-accent-hover: #f3cf55; /* Lighter Gold */
-    --color-text-primary: #ffffff;
-    --color-text-secondary: #a0a0a0; /* Grey text */
-    
-    /* Typography */
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Poppins', sans-serif;
-    
-    --section-spacing: 80px;
-}
-
+/* Reset default browser styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+/* Body styles */
 body {
-    font-family: var(--font-body);
-    background-color: var(--color-bg-main);
-    color: var(--color-text-primary);
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
+    background-color: #137dcf;
+    color: #333;
 }
 
-/* Utility Classes */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-h1, h2, h3 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-/* --- 2. Navigation Bar (Sticky) --- */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 0;
-    z-index: 1000;
-    transition: all 0.4s ease;
-    background: transparent; /* Starts transparent */
-}
-
-/* JS adds this class when scrolling down */
-.navbar.scrolled {
-    background: rgba(10, 10, 10, 0.95); /* Solid dark background */
-    padding: 15px 0;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.5);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2); /* Subtle gold border */
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    color: var(--color-text-primary);
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.logo span {
-    color: var(--color-accent);
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-    position: relative;
-}
-
-.nav-links a:hover, .nav-links a.active {
-    color: var(--color-accent);
-}
-
-/* Optional: subtle underline on hover */
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: var(--color-accent);
-    transition: width 0.3s ease;
-}
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-
-/* --- 3. Hero Section --- */
-.hero-section {
-    height: 100vh;
-    /* Use a high quality, dark, atmospheric car image here */
-    background: url('https://images.unsplash.com/photo-1566024096558-5b04504d6c36?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-    position: relative;
-    display: flex;
-    align-items: center;
+/* Header styles */
+.header-container {
+    background: url('showroom.avif') no-repeat center center/cover; /* Ensure the correct path for the image */
     text-align: center;
+    padding: 50px 0; /* Adjust padding as needed */
+    color: white;
+    height: 400px; /* Set a fixed height for the header */
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Dark gradient overlay to make text pop */
-    background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.9) 100%);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-content h1 {
-    font-size: 4em;
+.logo-container {
     margin-bottom: 20px;
-    color: var(--color-text-primary);
 }
 
-.hero-content p {
-    font-size: 1.2em;
-    color: var(--color-text-secondary);
-    max-width: 600px;
-    margin: 0 auto 40px auto;
+.company-logo {
+    width: 150px; /* Increase logo size */
+    height: 150px; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make the logo circular */
+    object-fit: cover; /* Maintain aspect ratio */
+    border: 3px solid #fff; /* Optional: Add a border for emphasis */
 }
 
+/* Main title styles */
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 10px 0;
+}
 
-/* --- 4. Main Content & Filtering --- */
+/* Navigation styles */
+nav {
+    margin-top: 20px;
+}
+
+.navigation {
+    list-style: none;
+    display: inline-flex;
+    gap: 20px; /* Space between navigation items */
+    padding: 0;
+}
+
+.nav-link {
+    color: #ffffff; /* White color for links */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background 0.3s ease; /* Transition effect for hover */
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1); /* Light background on hover */
+}
+
+/* Main content styles */
 main {
-    padding: var(--section-spacing) 0;
+    padding: 20px;
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-header h2 {
-    font-size: 2.5rem;
-    color: var(--color-accent);
-    margin-bottom: 10px;
-}
-
-.filter-controls {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    background: transparent;
-    border: 1px solid var(--color-text-secondary);
-    color: var(--color-text-secondary);
-    padding: 10px 25px;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 30px;
-}
-
-.filter-btn:hover, .filter-btn.active {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-bg-main);
-    font-weight: 600;
-}
-
-
-/* --- 5. Car Gallery Grid --- */
+/* Car gallery styles */
 .car-gallery {
-    display: grid;
-    /* Responsive grid layout */
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
-/* Car Card Styling */
+/* Individual car item styles */
 .car-item {
-    background-color: var(--color-bg-secondary);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Initial state for scroll animation */
-    opacity: 0;
-    transform: translateY(30px);
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* Class added by JS for scroll animation */
-.car-item.appear {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 
 .car-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15); /* Subtle gold glow on hover */
-    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.img-container {
-    height: 220px;
-    overflow: hidden;
-}
-
+/* Car image styles */
 .car-image {
     width: 100%;
-    height: 100%;
+    height: 150px;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    border-radius: 10px;
 }
 
-.car-item:hover .car-image {
-    transform: scale(1.08); /* Gentle zoom effect */
-}
-
+/* Car details styles */
 .car-details {
-    padding: 25px;
-    text-align: left;
+    margin-top: 10px;
 }
 
-.car-details h3 {
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-}
-
-.car-type {
-    color: var(--color-accent);
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
+/* Button styles */
+.car-button {
     display: inline-block;
-}
-
-.car-details p.car-desc {
-    color: var(--color-text-secondary);
-    font-size: 0.95rem;
-    margin-bottom: 25px;
-    height: 50px; /* Fixed height for alignment */
-    overflow: hidden;
-}
-
-
-/* --- 6. Buttons --- */
-.btn-gold {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
-    color: var(--color-bg-main);
-    padding: 15px 35px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #0d47a1;
+    color: white;
     border: none;
-}
-
-.btn-gold:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px -10px rgba(212, 175, 55, 0.5);
-}
-
-.btn-outline {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 12px;
-    background: transparent;
-    color: var(--color-accent);
-    border: 2px solid var(--color-accent);
-    text-decoration: none;
-    font-weight: 600;
+    padding: 10px 15px;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease;
 }
 
-.btn-outline:hover {
-    background-color: var(--color-accent);
-    color: var(--color-bg-main);
+.car-button:hover {
+    background-color: #1976d2;
 }
 
-
-/* --- 7. Footer --- */
+/* Footer styles */
 footer {
     text-align: center;
-    padding: 40px 0;
-    background-color: #050505;
-    color: var(--color-text-secondary);
-    margin-top: var(--section-spacing);
-    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
 }
 
-/* --- Responsive Design --- */
+/* Responsive design */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Simplify mobile nav for this example */
-    }
-    
-    .hero-content h1 {
-        font-size: 2.8em;
-    }
-    
     .car-gallery {
-        grid-template-columns: 1fr; /* Single column on mobile */
-        padding: 0 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .car-item {
+        width: 90%;
+        margin: 10px 0;
     }
 }
